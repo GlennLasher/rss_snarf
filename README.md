@@ -2,7 +2,7 @@
 
 Archiver for podcasts and RSS news feeds
 
-##What's that, then?
+#What's that, then?
 
 This Python library and its accompanying bits and bobs serve to read
 content from RSS feeds (as many as you can practically fit into the
@@ -21,7 +21,7 @@ yet been successfully fetched.  It's pretty error-tolerant, so if it
 fails, it just decrements a counter, and stops trying when that
 counter runs out.
 
-##Vision
+#Vision
 
 Because the content carried on RSS feeds tends to be somewhat
 ephemeral, the idea here was to create an archive of the feeds I read
