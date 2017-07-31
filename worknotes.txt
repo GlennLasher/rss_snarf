@@ -1,0 +1,97 @@
+RSS feed structure:
+
+xml
+  channel
+    title
+    link
+    language
+    copyright
+    description
+    lastBuildDate
+    generator
+    item
+      title
+      link
+      comments
+      pubDate
+      guid
+      enclosure
+      description
+
+Needed classes: Feed, Feed.Channel, Feed.Channel.Item
+
+Feed needs:
+  Structure
+    URL
+    Array to hold channels
+    Text - contains XML representation of the feed.
+  Methods
+    Creator/destructor/accessors, etc.
+    Retrieve the URL, copy it into the text.
+    Parse the text into channels
+    Generate the text from the channels
+    
+Feed.Channel needs:
+  Structure
+    Title
+    Link
+    Language
+    Copyright
+    Description
+    Build date
+    Generator
+    Text -- as above, but cut down to just the channel
+    Array to hold items.
+  Methods
+    Creator/destructor/accessors, etc.
+    Parse the text into properties and items
+    Generate the text from the properties and items.
+
+Feed.Channel.Item needs:
+  Structure
+    text -- as above, but cut down to the item.
+    title
+    link
+    comments
+    pubDate
+    guid
+    enclosure
+    description
+  Methods
+    Creator/destructor/accessors, etc.
+    Parse the text into properties
+    Generate the text from the properties
+    Retrieve the enclosure(s)
+
+Database structure:
+  Feed
+    ID Integer
+    URL text
+
+  Channel
+    ID Integer
+    Feed_ID Integer
+    Title text
+    link text
+    language text
+    copyright text
+    description text
+    lastBuildDate timestamp
+    generator text
+
+  Item
+    ID Integer
+    Channel_ID Integer
+    title text
+    link text
+    comments text
+    pubDate timestamp
+    guid text
+    description text
+
+  Enclosure
+    ID Integer
+    Item_ID Integer
+    URL text
+    Local_path text
+
